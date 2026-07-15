@@ -72,19 +72,19 @@
 
         <div id="counter-cards" class="flex gap-5">
 
-            <div id="total-count" class="bg-white w-1/3 p-5 space-y-2 rounded-md">
+            <div class="bg-white w-1/3 p-5 space-y-2 rounded-md">
                 <p class="text-xl">Total</p>
-                <p class="font-bold text-2xl">8</p>
+                <p id="total-count" class="font-bold text-2xl">0</p>
             </div>
 
-            <div id="interview-count" class="bg-white w-1/3 p-5 space-y-2 rounded-md">
+            <div class="bg-white w-1/3 p-5 space-y-2 rounded-md">
                 <p class="text-xl">Interview</p>
-                <p class="font-bold text-2xl text-green-500">0</p>
+                <p id="interview-count" class="font-bold text-2xl text-green-500">0</p>
             </div>
 
-            <div id="rejected-count" class="bg-white w-1/3 p-5 space-y-2 rounded-md">
+            <div class="bg-white w-1/3 p-5 space-y-2 rounded-md">
                 <p class="text-xl">Rejected</p>
-                <p class="font-bold text-2xl text-red-500">0</p>
+                <p id="rejected-count" class="font-bold text-2xl text-red-500">0</p>
             </div>
         </div>
     </section>
@@ -94,15 +94,17 @@
     <section id="jobs-section" class="max-w-[70%] mx-auto py-10 space-y-5">
         <h1 class="text-2xl text-color2 font-semibold">Available Jobs</h1>
 
+        <!-- Toggle Buttons -->
+
         <div id="toggle-buttons" class="flex gap-5">
-            <button id="all" class="w-24 h-8 btn-primary rounded-md cursor-pointer">All</button>
-            <button id="all" class="w-24 h-8 btn-secondary rounded-md cursor-pointer">Interview
+            <button onclick="toggleStyle('all-toggle-btn')" id="all-toggle-btn" class="w-24 h-8 btn-primary rounded-md cursor-pointer">All</button>
+            <button id="interview-toggle-btn" class="w-24 h-8 btn-secondary rounded-md cursor-pointer">Interview
             </button>
-            <button id="all" class="w-24 h-8 btn-secondary  rounded-md cursor-pointer">Rejected
+            <button onclick="toggleStyle('rejected-toggle-btn')" id="rejected-toggle-btn" class="w-24 h-8 btn-secondary  rounded-md cursor-pointer">Rejected
             </button>
         </div>
 
-        <div id="jobs-cards">
+        <div id="jobs-cards" class="space-y-5">
 
             <div id="card" class="bg-white rounded-xl p-7 space-y-3">
 
@@ -136,7 +138,46 @@
                     <button id="interview-btn"
                         class="px-4 py-0.5 rounded-md text-green-500 border border-green-500 cursor-pointer">INTERVIEW
                     </button>
-                    <button id="rejected-btn" class="px-4 py-0.5 rounded-md text-red-500 border border-red-500 cursor-pointer">REJECTED
+                    <button id="rejected-btn"
+                        class="px-4 py-0.5 rounded-md text-red-500 border border-red-500 cursor-pointer">REJECTED
+                    </button>
+                </div>
+            </div>
+
+            <div id="card" class="bg-white rounded-xl p-7 space-y-3">
+
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h1 id="company" class="text-color1 text-lg font-semibold">Mobile First Corp</h1>
+                        <p id="job-role" class="text-base text-color2">React Native Developer</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full border border-[#F1F2F4] flex justify-center">
+                        <button id="delete" class="cursor-pointer">
+                            <i class="fa-regular fa-trash-can" style="color: rgb(100, 116, 139);"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <p id="duty" class="text-sm text-color2">Remote • Full-time • $130,000 - $175,000
+
+                </p>
+
+                <div id="status-badge" class="max-w-[142px] text-center px-4 py-1 rounded-md text-color1 bg-secondary">
+                    Not Applied
+                </div>
+
+                <p id="job-description" class="text-sm text-color3">Build cross-platform mobile applications using React
+                    Native. Work on products
+                    used by millions of users worldwide.
+                </p>
+
+                <div id="status-buttons" class="flex gap-3">
+                    <button id="interview-btn"
+                        class="px-4 py-0.5 rounded-md text-green-500 border border-green-500 cursor-pointer">INTERVIEW
+                    </button>
+                    <button id="rejected-btn"
+                        class="px-4 py-0.5 rounded-md text-red-500 border border-red-500 cursor-pointer">REJECTED
                     </button>
                 </div>
             </div>
