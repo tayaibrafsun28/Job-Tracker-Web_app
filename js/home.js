@@ -48,7 +48,7 @@ function toggleStyle(id) {
 
     else if (id == 'all-toggle-btn') {
         jobCards.classList.remove('hidden')
-        filteredSection.classList.hidden('hidden')
+        filteredSection.classList.add('hidden')
     }
 }
 
@@ -103,9 +103,12 @@ jobCards.addEventListener('click', function(event){
 })
 
 
-// 
+//  Rendering Interview Part
+
 
 const filteredSection = document.getElementById('filtered-section')
+
+
 
 function renderInterview(){
     filteredSection.innerHTML = ''
