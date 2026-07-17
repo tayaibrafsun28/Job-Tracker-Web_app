@@ -52,13 +52,17 @@ function toggleStyle(id) {
     }
 }
 
-// Event delegation
+// Event delegation 
+
+// When we are clicking Interview btn of the jobCards section event delegation happening
 
 jobCards.addEventListener('click', function(event){
 
+    // Checking if interview btn was clicked
+
     if(event.target.classList.contains('interview-btn')){
         
-    // targeting parent node
+    // Findning parent node of interview btn
 
     const parentNode = event.target.parentNode.parentNode
 
@@ -78,7 +82,8 @@ jobCards.addEventListener('click', function(event){
     // Changing status badge
 
     parentNode.querySelector('.status-badge').innerText = 'INTERVIEW'
-    // object creation
+
+    // Creating object for dynamic card data
 
     const cardInfo = {
         companyName,
