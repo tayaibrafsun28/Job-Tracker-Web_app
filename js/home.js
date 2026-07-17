@@ -74,13 +74,17 @@ jobCards.addEventListener('click', function(event){
 
     const jobDescription = parentNode.querySelector('.job-description').innerText
 
+
+    // Changing status badge
+
+    parentNode.querySelector('.status-badge').innerText = 'INTERVIEW'
     // object creation
 
     const cardInfo = {
         companyName,
         jobRole,
         duty,
-        statusBadge,
+        statusBadge: 'INTERVIEW',
         jobDescription
     }
 
@@ -88,9 +92,6 @@ jobCards.addEventListener('click', function(event){
 
     const interviewJob = interviewList.find(item => item.companyName == cardInfo.companyName)
 
-    // Changing status badge
-
-    parentNode.querySelector('.status-badge').innerText = 'INTERVIEW'
 
     if(!interviewJob){
         interviewList.push(cardInfo)
@@ -117,8 +118,8 @@ function renderInterview(){
         
         <div class="flex justify-between items-center">
                     <div>
-                        <h1 class="company-name text-color1 text-lg font-semibold">Mobile First Corp</h1>
-                        <p class="job-role text-base text-color2">React Native Developer</p>
+                        <h1 class="company-name text-color1 text-lg font-semibold">${items.companyName}</h1>
+                        <p class="job-role text-base text-color2">${items.jobRole}</p>
                     </div>
                     <div class="w-8 h-8 rounded-full border border-[#F1F2F4] flex justify-center">
                         <button class="delete cursor-pointer">
@@ -128,16 +129,14 @@ function renderInterview(){
 
                 </div>
 
-                <p class="duty text-sm text-color2">Remote • Full-time • $130,000 - $175,000
+                <p class="duty text-sm text-color2">${items.duty}
                 </p>
 
                 <div class="status-badge max-w-[142px] text-center px-4 py-1 rounded-md text-color1 bg-secondary">
-                    Not Applied
+                    ${items.statusBadge}
                 </div>
 
-                <p class="job-description text-sm text-color3">Build cross-platform mobile applications using React
-                    Native. Work on products
-                    used by millions of users worldwide.
+                <p class="job-description text-sm text-color3">${items.jobDescription}
                 </p>
 
                 <div class="flex gap-3">
