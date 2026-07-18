@@ -243,7 +243,7 @@ function renderInterview(){
                 <p class="duty text-sm text-color2">${interviewItems.duty}
                 </p>
 
-                <div class="status-badge max-w-[142px] text-center px-4 py-1 rounded-md text-color1 bg-secondary">
+                <div class="status-badge max-w-35.5 text-center px-4 py-1 rounded-md text-color1 bg-secondary">
                     ${interviewItems.statusBadge}
                 </div>
 
@@ -313,7 +313,7 @@ function renderRejected(){
                 <p class="duty text-sm text-color2">${rejectedItems.duty}
                 </p>
 
-                <div class="status-badge max-w-[142px] text-center px-4 py-1 rounded-md text-color1 bg-secondary">
+                <div class="status-badge max-w-35.5 text-center px-4 py-1 rounded-md text-color1 bg-secondary">
                     ${rejectedItems.statusBadge}
                 </div>
 
