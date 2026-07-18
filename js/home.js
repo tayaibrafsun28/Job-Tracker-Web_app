@@ -10,6 +10,8 @@ let rejectedCount = document.getElementById('rejected-count');
 
 const jobCards = document.getElementById('job-cards');
 
+const jobsSection = document.getElementById('jobs-section');
+
 function calculateCards() {
     totalCount.innerText = jobCards.children.length
 
@@ -66,9 +68,9 @@ function toggleStyle(id) {
 
 // Event delegation 
 
-// When we are clicking Interview btn of the jobCards section event delegation happening
+// When we are clicking Interview btn of the jobsSection section event delegation happening
 
-jobCards.addEventListener('click', function(event){
+jobsSection.addEventListener('click', function(event){
 
     // Checking if interview btn was clicked
 
@@ -120,8 +122,8 @@ jobCards.addEventListener('click', function(event){
   rejectedList = rejectedList.filter(item =>
     item.companyName !== cardInfo.companyName);
 
-    if (currentStatus == 'interview-toggle-btn') {
-        renderInterview()
+    if (currentStatus == 'rejected-toggle-btn') {
+        renderRejected()
     }
     
     calculateCards()
@@ -180,8 +182,8 @@ jobCards.addEventListener('click', function(event){
     item.companyName !== cardInfo.companyName);
 
 
-    if (currentStatus == 'rejected-toggle-btn') {
-        renderRejected()
+    if (currentStatus == 'interview-toggle-btn') {
+        renderInterview()
     }
 
     calculateCards()
