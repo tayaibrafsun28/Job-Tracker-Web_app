@@ -204,6 +204,23 @@ const filteredSection = document.getElementById('filtered-section')
 function renderInterview(){
     filteredSection.innerHTML = ''
 
+    // Showing no available jobs
+
+    if (interviewList.length === 0) {
+        filteredSection.innerHTML = `
+            <div class="bg-white px-20 py-50 flex flex-col justify-center items-center">
+                <img src="../resources/jobs.png" alt="" class="">
+                <h2 class="text-2xl font-semibold text-color1">
+                    No jobs available
+                </h2>
+                <h2 class="text-base font-semibold text-color2">
+                    Check back soon for new job opportunities
+                </h2>
+            </div>
+        `;
+        return; // The return is stoping the function. Otherwise, JavaScript would continue and try to run the for loop.
+    }
+
     for(let interviewItems of interviewList){
         let div = document.createElement('div')
 
@@ -255,6 +272,24 @@ function renderInterview(){
 
 function renderRejected(){
     filteredSection.innerHTML = ''
+
+    // Showing no available jobs
+
+        if (rejectedList.length === 0) {
+        filteredSection.innerHTML = `
+            <div class="bg-white px-20 py-50 flex flex-col justify-center items-center">
+                <img src="../resources/jobs.png" alt="" class="">
+                <h2 class="text-2xl font-semibold text-color1">
+                    No jobs available
+                </h2>
+                <h2 class="text-base font-semibold text-color2">
+                    Check back soon for new job opportunities
+                </h2>
+            </div>
+        `;
+        return; // The return is stoping the function. Otherwise, JavaScript would continue and try to run the for loop.
+    }
+
 
     for(let rejectedItems of rejectedList){
         let div = document.createElement('div')
