@@ -1,6 +1,6 @@
 let interviewList = []
 let rejectedList = []
-let currentStatus = 'all'
+let currentStatus = 'all-toggle-btn'
 
 let totalCount = document.getElementById('total-count');
 
@@ -21,11 +21,7 @@ function calculateCards() {
 
     rejectedCount.innerText = rejectedList.length
 
-    perPageCount.innerText =
-    `${jobCards.children.length} Jobs Available`
-    
-    
-
+ updatePerPageCount();
 }
 
 calculateCards()
@@ -47,6 +43,9 @@ function toggleStyle(id) {
     interviewToggleBtn.classList.add('btn-secondary');
     rejectedTogglebtn.classList.add('btn-secondary');
     
+        currentStatus = id;
+
+updatePerPageCount();
 
     const selectedBtn = document.getElementById(id)
 
@@ -75,6 +74,7 @@ function toggleStyle(id) {
         filteredSection.classList.add('hidden')
         
     }
+
 
     
 }
@@ -304,7 +304,7 @@ function renderInterview(){
 
 }
 
-//  Rendering Interview Part
+//  Rendering Rejected Part
 
 
 function renderRejected(){
@@ -374,12 +374,19 @@ function renderRejected(){
 
 }
 
+// Rendering per page count part
 
-document.getElementById('interview-toggle-btn').addEventListener('click', function() {
-        perPageCount.innerText = `${interviewList.length} Jobs Available`
+function updatePerPageCount() {
+
+    if (currentStatus === 'all-toggle-btn') {
+        perPageCount.innerText = `${jobCards.children.length} Jobs Available`;
     }
-)
-document.getElementById('rejected-toggle-btn').addEventListener('click', function() {
-        perPageCount.innerText = `${rejectedList.length} Jobs Available`
+
+    else if (currentStatus === 'interview-toggle-btn') {
+        perPageCount.innerText = `${interviewList.length} of ${jobCards.children.length} jobs`;
     }
-)
+
+    else if (currentStatus === 'rejected-toggle-btn') {
+        perPageCount.innerText = `${rejectedList.length} of ${jobCards.children.length} jobs`;
+    }
+}
