@@ -191,6 +191,28 @@ jobsSection.addEventListener('click', function(event){
 
     }
 
+    else if (event.target.closest('.delete')) {
+
+    const parentNode = event.target.closest('.card');
+
+    const companyName = parentNode.querySelector('.company-name').innerText;
+
+    interviewList = interviewList.filter(item =>
+        item.companyName !== companyName
+    );
+
+    rejectedList = rejectedList.filter(item =>
+        item.companyName !== companyName
+    );
+
+    parentNode.remove();
+
+    calculateCards();
+
+    renderInterview();
+    renderRejected();
+}
+
 })
 
 
