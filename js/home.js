@@ -1,5 +1,6 @@
 let interviewList = []
 let rejectedList = []
+let currentStatus = 'all'
 
 let totalCount = document.getElementById('total-count');
 
@@ -39,18 +40,22 @@ function toggleStyle(id) {
 
     const selectedBtn = document.getElementById(id)
 
+    currentStatus = id
+
     selectedBtn.classList.remove('btn-secondary')
     selectedBtn.classList.add('btn-primary')
 
     if (id == 'interview-toggle-btn') {
         jobCards.classList.add('hidden')
         filteredSection.classList.remove('hidden')
+        renderInterview()
     }
 
     
     else if (id == 'rejected-toggle-btn') {
         jobCards.classList.add('hidden')
         filteredSection.classList.remove('hidden')
+        renderRejected()
     }
 
     else if (id == 'all-toggle-btn') {
@@ -109,9 +114,17 @@ jobCards.addEventListener('click', function(event){
         interviewList.push(cardInfo)
     }
 
-    calculateCards()
 
-    renderInterview()
+    // Removing the rejected job from list when interview btn is clicked
+
+  rejectedList = rejectedList.filter(item =>
+    item.companyName !== cardInfo.companyName);
+
+    if (currentStatus == 'interview-toggle-btn') {
+        renderInterview()
+    }
+    
+    calculateCards()
 
     }
 
@@ -150,18 +163,29 @@ jobCards.addEventListener('click', function(event){
         jobDescription
     }
 
-    // find job in interview list
+    // find job in rejected list
 
     const rejectedJob = rejectedList.find(item => item.companyName == cardInfo.companyName)
 
+    // If not found push the job in list
 
     if(!rejectedJob){
         rejectedList.push(cardInfo)
     }
 
+
+    // Removing the interview job from list when rejected btn is clicked
+
+    interviewList = interviewList.filter(item =>
+    item.companyName !== cardInfo.companyName);
+
+
+    if (currentStatus == 'rejected-toggle-btn') {
+        renderRejected()
+    }
+
     calculateCards()
 
-    renderRejected()
 
     }
 
@@ -178,7 +202,7 @@ const filteredSection = document.getElementById('filtered-section')
 function renderInterview(){
     filteredSection.innerHTML = ''
 
-    for(let items of interviewList){
+    for(let interviewItems of interviewList){
         let div = document.createElement('div')
 
         div.className = 'card bg-white rounded-xl p-7 space-y-3'
@@ -186,8 +210,8 @@ function renderInterview(){
         
         <div class="flex justify-between items-center">
                     <div>
-                        <h1 class="company-name text-color1 text-lg font-semibold">${items.companyName}</h1>
-                        <p class="job-role text-base text-color2">${items.jobRole}</p>
+                        <h1 class="company-name text-color1 text-lg font-semibold">${interviewItems.companyName}</h1>
+                        <p class="job-role text-base text-color2">${interviewItems.jobRole}</p>
                     </div>
                     <div class="w-8 h-8 rounded-full border border-[#F1F2F4] flex justify-center">
                         <button class="delete cursor-pointer">
@@ -197,14 +221,14 @@ function renderInterview(){
 
                 </div>
 
-                <p class="duty text-sm text-color2">${items.duty}
+                <p class="duty text-sm text-color2">${interviewItems.duty}
                 </p>
 
                 <div class="status-badge max-w-[142px] text-center px-4 py-1 rounded-md text-color1 bg-secondary">
-                    ${items.statusBadge}
+                    ${interviewItems.statusBadge}
                 </div>
 
-                <p class="job-description text-sm text-color3">${items.jobDescription}
+                <p class="job-description text-sm text-color3">${interviewItems.jobDescription}
                 </p>
 
                 <div class="flex gap-3">
@@ -230,7 +254,7 @@ function renderInterview(){
 function renderRejected(){
     filteredSection.innerHTML = ''
 
-    for(let items of rejectedList){
+    for(let rejectedItems of rejectedList){
         let div = document.createElement('div')
 
         div.className = 'card bg-white rounded-xl p-7 space-y-3'
@@ -238,8 +262,8 @@ function renderRejected(){
         
         <div class="flex justify-between items-center">
                     <div>
-                        <h1 class="company-name text-color1 text-lg font-semibold">${items.companyName}</h1>
-                        <p class="job-role text-base text-color2">${items.jobRole}</p>
+                        <h1 class="company-name text-color1 text-lg font-semibold">${rejectedItems.companyName}</h1>
+                        <p class="job-role text-base text-color2">${rejectedItems.jobRole}</p>
                     </div>
                     <div class="w-8 h-8 rounded-full border border-[#F1F2F4] flex justify-center">
                         <button class="delete cursor-pointer">
@@ -249,14 +273,14 @@ function renderRejected(){
 
                 </div>
 
-                <p class="duty text-sm text-color2">${items.duty}
+                <p class="duty text-sm text-color2">${rejectedItems.duty}
                 </p>
 
                 <div class="status-badge max-w-[142px] text-center px-4 py-1 rounded-md text-color1 bg-secondary">
-                    ${items.statusBadge}
+                    ${rejectedItems.statusBadge}
                 </div>
 
-                <p class="job-description text-sm text-color3">${items.jobDescription}
+                <p class="job-description text-sm text-color3">${rejectedItems.jobDescription}
                 </p>
 
                 <div class="flex gap-3">
