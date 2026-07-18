@@ -12,12 +12,20 @@ const jobCards = document.getElementById('job-cards');
 
 const jobsSection = document.getElementById('jobs-section');
 
+let perPageCount = document.getElementById('per-page-count')
+
 function calculateCards() {
     totalCount.innerText = jobCards.children.length
 
-    interviewCount.innerHTML = interviewList.length
+    interviewCount.innerText = interviewList.length
 
-    rejectedCount.innerHTML = rejectedList.length
+    rejectedCount.innerText = rejectedList.length
+
+    perPageCount.innerText =
+    `${jobCards.children.length} Jobs Available`
+    
+    
+
 }
 
 calculateCards()
@@ -50,6 +58,8 @@ function toggleStyle(id) {
     if (id == 'interview-toggle-btn') {
         jobCards.classList.add('hidden')
         filteredSection.classList.remove('hidden')
+
+        
         renderInterview()
     }
 
@@ -63,7 +73,10 @@ function toggleStyle(id) {
     else if (id == 'all-toggle-btn') {
         jobCards.classList.remove('hidden')
         filteredSection.classList.add('hidden')
+        
     }
+
+    
 }
 
 // Event delegation 
@@ -71,6 +84,7 @@ function toggleStyle(id) {
 // When we are clicking Interview btn of the jobsSection section event delegation happening
 
 jobsSection.addEventListener('click', function(event){
+
 
     // Checking if interview btn was clicked
 
@@ -212,6 +226,7 @@ jobsSection.addEventListener('click', function(event){
     renderInterview();
     renderRejected();
 }
+
 
 })
 
@@ -358,3 +373,13 @@ function renderRejected(){
     }
 
 }
+
+
+document.getElementById('interview-toggle-btn').addEventListener('click', function() {
+        perPageCount.innerText = `${interviewList.length} Jobs Available`
+    }
+)
+document.getElementById('rejected-toggle-btn').addEventListener('click', function() {
+        perPageCount.innerText = `${rejectedList.length} Jobs Available`
+    }
+)
