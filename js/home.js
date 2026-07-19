@@ -244,12 +244,12 @@ function renderInterview(){
 
     if (interviewList.length === 0) {
         filteredSection.innerHTML = `
-            <div class="bg-white px-20 py-50 flex flex-col justify-center items-center">
-                <img src="../resources/jobs.png" alt="" class="">
-                <h2 class="text-2xl font-semibold text-color1">
+            <div class="bg-white px-5 md:px-20 py-15 md:py-50 flex flex-col justify-center items-center gap-2">
+                <img src="../resources/jobs.png" alt="">
+                <h2 class="text-base md:text-2xl font-semibold text-color1">
                     No jobs available
                 </h2>
-                <h2 class="text-base font-semibold text-color2">
+                <h2 class="text-xs md:text-md font-semibold text-color2 text-center">
                     Check back soon for new job opportunities
                 </h2>
             </div>
@@ -313,12 +313,12 @@ function renderRejected(){
 
         if (rejectedList.length === 0) {
         filteredSection.innerHTML = `
-            <div class="bg-white px-20 py-50 flex flex-col justify-center items-center">
-                <img src="../resources/jobs.png" alt="" class="">
-                <h2 class="text-2xl font-semibold text-color1">
+            <div class="bg-white px-5 md:px-20 py-15 md:py-50 flex flex-col justify-center items-center gap-2">
+                <img src="../resources/jobs.png" alt="">
+                <h2 class="text-base md:text-2xl font-semibold text-color1">
                     No jobs available
                 </h2>
-                <h2 class="text-base font-semibold text-color2">
+                <h2 class="text-xs md:text-md font-semibold text-color2 text-center">
                     Check back soon for new job opportunities
                 </h2>
             </div>
