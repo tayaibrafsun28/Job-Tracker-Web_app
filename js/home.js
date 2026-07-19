@@ -230,8 +230,6 @@ jobsSection.addEventListener('click', function(event){
 })
 
 
-
-
 const filteredSection = document.getElementById('filtered-section')
 
 //  Rendering Interview Part
@@ -265,8 +263,8 @@ function renderInterview(){
         
         <div class="flex justify-between items-center">
                     <div>
-                        <h1 class="company-name text-color1 text-lg font-semibold">${interviewItems.companyName}</h1>
-                        <p class="job-role text-base text-color2">${interviewItems.jobRole}</p>
+                        <h1 class="company-name text-color1 text-sm md:text-lg font-semibold">${interviewItems.companyName}</h1>
+                        <p class="job-role text-xs md:text-base text-color2">${interviewItems.jobRole}</p>
                     </div>
                     <div class="w-8 h-8 rounded-full border border-[#F1F2F4] flex justify-center">
                         <button class="delete cursor-pointer">
@@ -276,22 +274,22 @@ function renderInterview(){
 
                 </div>
 
-                <p class="duty text-sm text-color2">${interviewItems.duty}
+                <p class="duty text-xs md:text-sm text-color2">${interviewItems.duty}
                 </p>
 
-                <div class="status-badge max-w-35.5 text-center px-4 py-1 rounded-md text-color1 bg-secondary">
+                <div class="status-badge max-w-30 md:max-w-35.5 text-center px-4 py-2 rounded-md text-green-500 bg-green-50 border text-xs md:text-base font-bold">
                     ${interviewItems.statusBadge}
                 </div>
 
-                <p class="job-description text-sm text-color3">${interviewItems.jobDescription}
+                <p class="job-description text-xs md:text-sm text-color3">${interviewItems.jobDescription}
                 </p>
 
                 <div class="flex gap-3">
                     <button
-                        class=" interview-btn px-4 py-0.5 rounded-md text-green-500 border border-green-500 cursor-pointer">INTERVIEW
+                        class=" interview-btn px-4 py-0.5 rounded-md text-green-500 border border-green-500 cursor-pointer text-xs md:text-base">INTERVIEW
                     </button>
                     <button
-                        class="rejected-btn px-4 py-0.5 rounded-md text-red-500 border border-red-500 cursor-pointer">REJECTED
+                        class="rejected-btn px-4 py-0.5 rounded-md text-red-500 border border-red-500 cursor-pointer text-xs md:text-base">REJECTED
                     </button>
                 </div>
 
@@ -335,8 +333,8 @@ function renderRejected(){
         
         <div class="flex justify-between items-center">
                     <div>
-                        <h1 class="company-name text-color1 text-lg font-semibold">${rejectedItems.companyName}</h1>
-                        <p class="job-role text-base text-color2">${rejectedItems.jobRole}</p>
+                        <h1 class="company-name text-color1 text-sm md:text-lg font-semibold">${rejectedItems.companyName}</h1>
+                        <p class="job-role text-xs md:text-base text-color2">${rejectedItems.jobRole}</p>
                     </div>
                     <div class="w-8 h-8 rounded-full border border-[#F1F2F4] flex justify-center">
                         <button class="delete cursor-pointer">
@@ -346,22 +344,22 @@ function renderRejected(){
 
                 </div>
 
-                <p class="duty text-sm text-color2">${rejectedItems.duty}
+                <p class="duty text-xs md:text-sm text-color2">${rejectedItems.duty}
                 </p>
 
-                <div class="status-badge max-w-35.5 text-center px-4 py-1 rounded-md text-color1 bg-secondary">
+                <div class="status-badge max-w-30 md:max-w-35.5 text-center px-4 py-2 rounded-md text-red-500 bg-red-50 border text-xs md:text-base font-bold">
                     ${rejectedItems.statusBadge}
                 </div>
 
-                <p class="job-description text-sm text-color3">${rejectedItems.jobDescription}
+                <p class="job-description text-xs md:text-sm text-color3">${rejectedItems.jobDescription}
                 </p>
 
                 <div class="flex gap-3">
                     <button
-                        class=" interview-btn px-4 py-0.5 rounded-md text-green-500 border border-green-500 cursor-pointer">INTERVIEW
+                        class=" interview-btn px-4 py-0.5 rounded-md text-green-500 border border-green-500 cursor-pointer text-xs md:text-base">INTERVIEW
                     </button>
                     <button
-                        class="rejected-btn px-4 py-0.5 rounded-md text-red-500 border border-red-500 cursor-pointer">REJECTED
+                        class="rejected-btn px-4 py-0.5 rounded-md text-red-500 border border-red-500 cursor-pointer text-xs md:text-base">REJECTED
                     </button>
                 </div>
 
