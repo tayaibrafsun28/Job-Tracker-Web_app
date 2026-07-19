@@ -222,8 +222,12 @@ jobsSection.addEventListener('click', function(event){
 
     calculateCards();
 
+if (currentStatus === 'interview-toggle-btn') {
     renderInterview();
+}
+else if (currentStatus === 'rejected-toggle-btn') {
     renderRejected();
+}
 }
 
 
@@ -277,7 +281,7 @@ function renderInterview(){
                 <p class="duty text-xs md:text-sm text-color2">${interviewItems.duty}
                 </p>
 
-                <div class="status-badge max-w-30 md:max-w-35.5 text-center px-4 py-2 rounded-md text-green-500 bg-green-50 border text-xs md:text-base font-bold">
+                <div class="status-badge max-w-30 md:max-w-35.5 text-center px-4 py-2 rounded-md text-slate-700 bg-green-200 text-xs md:text-base font-bold">
                     ${interviewItems.statusBadge}
                 </div>
 
@@ -347,7 +351,7 @@ function renderRejected(){
                 <p class="duty text-xs md:text-sm text-color2">${rejectedItems.duty}
                 </p>
 
-                <div class="status-badge max-w-30 md:max-w-35.5 text-center px-4 py-2 rounded-md text-red-500 bg-red-50 border text-xs md:text-base font-bold">
+                <div class="status-badge max-w-30 md:max-w-35.5 text-center px-4 py-2 rounded-md text-slate-700 bg-red-200 text-xs md:text-base font-bold">
                     ${rejectedItems.statusBadge}
                 </div>
 
