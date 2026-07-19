@@ -43,9 +43,8 @@ function toggleStyle(id) {
     interviewToggleBtn.classList.add('btn-secondary');
     rejectedTogglebtn.classList.add('btn-secondary');
     
-        currentStatus = id;
-
-updatePerPageCount();
+    currentStatus = id;
+    updatePerPageCount();
 
     const selectedBtn = document.getElementById(id)
 
