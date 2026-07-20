@@ -262,7 +262,7 @@ function renderInterview(){
     for(let interviewItems of interviewList){
         let div = document.createElement('div')
 
-        div.className = 'card bg-white rounded-xl p-7 space-y-3'
+        div.className = 'card bg-white rounded-xl p-7 space-y-3 my-5'
         div.innerHTML = `
         
         <div class="flex justify-between items-center">
@@ -332,7 +332,7 @@ function renderRejected(){
     for(let rejectedItems of rejectedList){
         let div = document.createElement('div')
 
-        div.className = 'card bg-white rounded-xl p-7 space-y-3'
+        div.className = 'card bg-white rounded-xl p-7 space-y-3 my-5'
         div.innerHTML = `
         
         <div class="flex justify-between items-center">
