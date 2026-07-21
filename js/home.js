@@ -44,11 +44,9 @@ function toggleStyle(id) {
     rejectedTogglebtn.classList.add('btn-secondary');
     
     currentStatus = id;
-    updatePerPageCount();
 
     const selectedBtn = document.getElementById(id)
 
-    currentStatus = id
 
     selectedBtn.classList.remove('btn-secondary')
     selectedBtn.classList.add('btn-primary')
@@ -74,7 +72,7 @@ function toggleStyle(id) {
         
     }
 
-
+    updatePerPageCount();
     
 }
 
